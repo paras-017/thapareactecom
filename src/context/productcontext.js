@@ -14,13 +14,17 @@ const API = "https://api.pujakaitem.com/api/products"
 //PROVIDING CONTEXT
 const AppProvider = ({children}) => {
     const intialState = {
+        //state for allProduct
         isLoading:false,
         isError:false,
         products:[],
-        featureProducts:[]
+        featureProducts:[],
+        //states for singleProduct
+        isSingleLoading : false,
+        singleProduct:{}
     }
     const [state, dispatch] = useReducer(reducer, intialState)
-
+//--------------------------------get allProducts API--------------------------------
     const getProducts =async (url) =>{
         //dispatch call the action method of reducer
         dispatch({type:"SET_LOADING"})
@@ -29,11 +33,24 @@ const AppProvider = ({children}) => {
         const products = await res.data
         setTimeout(() => { 
             dispatch({type:'SET_API_DATA', payload:products})
-        }, 2500);
+        }, 1300);
        } catch (error) {
         dispatch({type:'API_ERROR'})
        }
     }
+
+//--------------------------------get singleProduct API--------------------------------
+    const getSingleProcut = async ()=>{
+        try {
+            const res = await axios.get(`https://api.pujakaitem.com/api/products?id=thapaserialnoa`)
+            const singleProduct = await res.data
+        } catch (error) {
+            
+        }
+    }
+    
+
+
     useEffect(() => {
     getProducts(API)
     }, [])
