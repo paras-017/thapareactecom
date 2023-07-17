@@ -27,7 +27,9 @@ const AppProvider = ({children}) => {
         try {
         const res = await axios.get(url)
         const products = await res.data
-         dispatch({type:'SET_API_DATA', payload:products})
+        setTimeout(() => { 
+            dispatch({type:'SET_API_DATA', payload:products})
+        }, 2500);
        } catch (error) {
         dispatch({type:'API_ERROR'})
        }
@@ -35,7 +37,6 @@ const AppProvider = ({children}) => {
     useEffect(() => {
     getProducts(API)
     }, [])
-
 
     return (
         <AppContext.Provider value={{...state}}>{children}</AppContext.Provider>

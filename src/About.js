@@ -4,6 +4,7 @@ import HeroSection from "./components/HeroSection";
 
 
 const About = () => {
+  //using context
 // const {myName} = useProductContext()
 
   const data = {
