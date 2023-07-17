@@ -40,12 +40,14 @@ const AppProvider = ({children}) => {
     }
 
 //--------------------------------get singleProduct API--------------------------------
-    const getSingleProcut = async ()=>{
+    const getSingleProduct = async (url)=>{
+        dispatch({type:"SET_SINGLE_LOADING"})
         try {
-            const res = await axios.get(`https://api.pujakaitem.com/api/products?id=thapaserialnoa`)
+            const res = await axios.get(url)
             const singleProduct = await res.data
+            dispatch({type:'SET_SINGLE_PRODUCT', payload:singleProduct})
         } catch (error) {
-            
+            dispatch({type:'SET_SINGLE_ERROR'})
         }
     }
     
@@ -56,7 +58,7 @@ const AppProvider = ({children}) => {
     }, [])
 
     return (
-        <AppContext.Provider value={{...state}}>{children}</AppContext.Provider>
+        <AppContext.Provider value={{...state,getSingleProduct}}>{children}</AppContext.Provider>
     )
 }
 // CUSTOM HOOKS
