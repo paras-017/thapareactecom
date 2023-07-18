@@ -18,6 +18,7 @@ const SingleProduct = () =>{
 
   useEffect(() => {
     getSingleProduct(url)
+     // eslint-disable-next-line
   }, [])
 
   if (isSingleLoading) {

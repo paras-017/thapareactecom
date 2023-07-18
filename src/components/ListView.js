@@ -1,11 +1,40 @@
-import React from 'react'
-import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import FormatPrice from "../Helpers/FormatPrice";
+import { Button } from "../styles/Button";
 
-const ListView = () => {
+const ListView = ({ products }) => {
   return (
-    <div>ListView</div>
-  )
-}
+    <Wrapper className="section">
+      <div className="container grid">
+        {products.map((curElem,i) => {
+          
+        const { id, name, image, price, description } = curElem;
+          return (
+            <div className="card grid grid-two-column" key={i}>
+              <figure>
+                <img src={image} alt={name} />
+              </figure>
+
+              <div className="card-data">
+                <h3>{name}</h3>
+                <p>
+                  <FormatPrice price={price} />
+                </p>
+                <p>{description.slice(0, 90)}...</p>
+
+                <NavLink to={`/singleproduct/${id}`} className="btn-main">
+                  <Button className="btn">Read More</Button>
+                </NavLink>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </Wrapper>
+  );
+};
+
 const Wrapper = styled.section`
   padding: 9rem 0;
 
@@ -91,4 +120,5 @@ const Wrapper = styled.section`
     }
   }
 `;
-export default ListView
+
+export default ListView;
