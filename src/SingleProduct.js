@@ -17,10 +17,11 @@ const SingleProduct = () =>{
   useEffect(() => {
     getSingleProduct(url)
   }, [])
+
   if (isSingleLoading) {
     return <div className="page_loading">Loading.....</div>;
   }
-
+  console.log(singleProduct);
   const {id:alias,name,company,price,description,category,stock,stars,reviews,image} = singleProduct
 
   return (
@@ -82,6 +83,10 @@ const SingleProduct = () =>{
 const Wrapper = styled.section`
   .container {
     padding: 9rem 0;
+  }
+  .product_images{
+    display: flex;
+    align-items: center;
   }
   .product-data {
     display: flex;
