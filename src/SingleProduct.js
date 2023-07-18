@@ -8,6 +8,7 @@ import FormatPrice from "./Helpers/FormatPrice";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import { useProductContext } from "./context/productcontext";
+import Star from "./components/Star";
 
 const SingleProduct = () =>{
   const {id} = useParams()
@@ -37,8 +38,7 @@ const SingleProduct = () =>{
         {/* product dAta  */}
         <div className="product-data">
           <h2>{name}</h2>
-          <p>{stars}</p>
-          <p>{reviews} reviews</p>
+          <Star stars={stars} reviews={reviews} />
           <p className="product-data-price">
             MRP:<del><FormatPrice price={price + 250000} /></del>
           </p>
