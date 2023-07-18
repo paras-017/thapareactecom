@@ -9,6 +9,7 @@ import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import { useProductContext } from "./context/productcontext";
 import Star from "./components/Star";
+import AddToCart from "./components/AddToCart";
 
 const SingleProduct = () =>{
   const {id} = useParams()
@@ -73,6 +74,8 @@ const SingleProduct = () =>{
             <p>ID : <span> {id} </span></p>
             <p>Brand :<span> {company} </span></p>
           </div>
+          <hr />
+          {stock>0 && <AddToCart product={singleProduct}/>}
         </div>
       </div>
     </Container>
