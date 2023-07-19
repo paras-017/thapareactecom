@@ -33,7 +33,7 @@ const FilterSection = () => {
         </form>
       </div>
 
-      <div className="filter-category">
+      <div className="filter-category"> 
         <h3>Category</h3>
         <div>
           {categoryData.map((curElem, index) => {
@@ -56,11 +56,7 @@ const FilterSection = () => {
         <h3>Company</h3>
 
         <form action="#">
-          <select
-            name="company"
-            id="company"
-            className="filter-company--select"
-            onClick={updateFilterValue}>
+          <select name="company" id="company" className="filter-company--select" onClick={updateFilterValue}>
             {companyData.map((curElem, index) => {
               return (
                 <option key={index} value={curElem} name="company">
