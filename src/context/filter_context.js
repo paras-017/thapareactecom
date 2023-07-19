@@ -24,12 +24,17 @@ export const FilterContextProvider = ({ children }) => {
   const setListView = () => {
     return dispatch({ type: "SET_LIST_VIEW" });
   };
-
   // sorting function
   const sorting = (event) => {
     let userValue = event.target.value;
     dispatch({ type: "GET_SORT_VALUE", payload: userValue });
   };
+
+    // to sort the product
+    useEffect(() => {
+      dispatch({type:"SORTING_PRODUCTS", payload:products})
+      // eslint-disable-next-line
+    }, [state.sorting_value,]);
 
   useEffect(() => {
     dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });

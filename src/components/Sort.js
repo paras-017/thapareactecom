@@ -31,11 +31,7 @@ const Sort = () => {
       <div className="sort-selection">
         <form action="#">
           <label htmlFor="sort"></label>
-          <select
-            name="sort"
-            id="sort"
-            className="sort-selection--style"
-            onClick={sorting}>
+          <select name="sort" id="sort" className="sort-selection--style"  onClick={sorting}>
             <option value="lowest">Price(lowest)</option>
             <option value="#" disabled></option>
             <option value="highest">Price(highest)</option>
