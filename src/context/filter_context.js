@@ -32,7 +32,7 @@ export const FilterContextProvider = ({ children }) => {
 
     // to sort the product
     useEffect(() => {
-      dispatch({type:"SORTING_PRODUCTS", payload:products})
+      dispatch({type:"SORTING_PRODUCTS"})
       // eslint-disable-next-line
     }, [state.sorting_value,]);
 
