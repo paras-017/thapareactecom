@@ -3,11 +3,7 @@ import styled from 'styled-components';
 import { useFilterContext } from '../context/filter_context';
 
 const FilterSection = () => {
-  const {
-    filters: { text, category, color },
-    updateFilterValue,
-    all_products,
-  } = useFilterContext();
+  const {filters: { text, category, color },updateFilterValue,all_products,} = useFilterContext();
 
   // get the unique values of each property
   const getUniqueData = (data, attr) => {
@@ -42,7 +38,13 @@ const FilterSection = () => {
         <div>
           {categoryData.map((curElem, index) => {
             return (
-              <button key={index} type="button" name="category"  value={curElem} className={curElem === category ? "active" : ""}onClick={updateFilterValue}>
+              <button 
+              key={index} 
+              type="button" 
+              name="category"  
+              value={curElem} 
+              className={curElem === category ? "active" : ""}
+              onClick={updateFilterValue}>
                 {curElem}
               </button>
             );
