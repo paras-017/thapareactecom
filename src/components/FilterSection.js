@@ -16,7 +16,7 @@ const FilterSection = () => {
       newVal = newVal.flat();
     }
 
-    return (newVal = ["all", ...new Set(newVal)]);
+     return (newVal = ["all", ...new Set(newVal)]);
   };
 
   // we need to have the individual data of each in an array format
