@@ -26,12 +26,11 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
           <p>{name}</p>
           <div className="color-div">
             <p>color:</p>
-            <div
-              className="color-style"
-              style={{ backgroundColor: color, color: color }}></div>
+            <div className="color-style"style={{ backgroundColor: color, color: color }}></div>
           </div>
         </div>
       </div>
+
       {/* price   */}
       <div className="cart-hide">
         <p>
@@ -40,17 +39,11 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
       </div>
 
       {/* Quantity  */}
-      <CartAmountToggle
-        amount={amount}
-        setDecrease={setDecrease}
-        setIncrease={setIncrease}
-      />
+      <CartAmountToggle amount={amount} setDecrease={setDecrease} setIncrease={setIncrease}/>
 
       {/* //Subtotal */}
       <div className="cart-hide">
-        <p>
-          <FormatPrice price={price * amount} />
-        </p>
+        <p><FormatPrice price={price * amount} /></p>
       </div>
 
       <div>
