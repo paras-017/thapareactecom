@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { useFilterContext } from '../context/filter_context';
 import { FaCheck } from "react-icons/fa";
 import FormatPrice from "../Helpers/FormatPrice";
+import { Button } from '../styles/Button';
 const FilterSection = () => {
-const {filters: { text, category, color, price, maxPrice, minPrice , clearFilters},updateFilterValue,all_products,} = useFilterContext();
+const {filters: { text, category, color, price, maxPrice, minPrice }, clearFilters,updateFilterValue,all_products,} = useFilterContext();
 
 
   // get the unique values of each property

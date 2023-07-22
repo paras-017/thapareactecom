@@ -24,7 +24,6 @@ const SingleProduct = () =>{
   if (isSingleLoading) {
     return <div className="page_loading">Loading.....</div>;
   }
-  console.log(singleProduct);
   const {id:alias,name,company,price,description,category,stock,stars,reviews,image} = singleProduct
 
   return (
