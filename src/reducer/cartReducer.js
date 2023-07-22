@@ -20,8 +20,13 @@ const cartReducer = (state, action) => {
                 //adding product to cart without disturbing the previous products in card
                 cart:[...state.cart, cartProduct]
             }
-           
-    
+        case 'REMOVE_ITEM': 
+           let updatedCart = state.cart.filter((curItem)=>curItem.id != action.payload)
+           return {
+            ...state,
+            cart:updatedCart
+           }
+
         default:
             break;
     }
