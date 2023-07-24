@@ -20,6 +20,16 @@ const initialState = {
 const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // increment and decrement the product
+  const setDecrease = (id) => {
+    dispatch({ type: "SET_DECREMENT", payload: id });
+  };
+
+  const setIncrement = (id) => {
+    dispatch({ type: "SET_INCREMENT", payload: id });
+  };
+
+
   const addToCart = (id, color, amount, product) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, color, amount, product } });
   };
@@ -41,7 +51,7 @@ useEffect(() => {
 
   
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem, clearCart }}>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem, clearCart ,setDecrease, setIncrement}}>
       {children}
     </CartContext.Provider>
   );
