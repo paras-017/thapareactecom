@@ -45,14 +45,12 @@ const cartReducer = (state, action) => {
                     cart:[...state.cart, cartProduct]
                 }
             }           
-
         case 'REMOVE_ITEM': 
            let updatedCart = state.cart.filter((curItem)=>curItem.id !== action.payload)
            return {
             ...state,
             cart:updatedCart
            }
-
         case 'CLEAR_CART':
             return {
                 ...state,
@@ -97,19 +95,56 @@ const cartReducer = (state, action) => {
               });
               return { ...state, cart: updatedProduct };
               
-        case 'CART_TOTAL_ITEM':
-          let updatedItemVal = state.cart.reduce((initialVal, curElem) => {
-            let { amount } = curElem;
+        // case 'CART_TOTAL_ITEM':
+        //   let updatedItemVal = state.cart.reduce((initialVal, curElem) => {
+        //     let { amount } = curElem;
       
-            initialVal = initialVal + amount;
-            return initialVal;
-          }, 0);
+        //     initialVal = initialVal + amount;
+        //     return initialVal;
+        //   }, 0);
       
+        //   return {
+        //     ...state,
+        //     total_item: updatedItemVal,
+        //   };
+        
+        // case 'CART_TOTAL_PRICE':
+        //   let total_price = state.cart.reduce((initialVal, curElem) => {
+        //     let { price, amount } = curElem;
+      
+        //     initialVal = initialVal + price * amount;
+        //     // 25000 + 0 = 25000
+        //     // 10199 + 25000 = 121
+      
+        //     return initialVal;
+        //   }, 0);
+      
+        //   return {
+        //     ...state,
+        //     total_price,
+        //   };
+
+        case 'CART_ITEM_PRICE_TOTAL':
+          let { total_item, total_price } = state.cart.reduce(
+            (accum, curElem) => {
+              let { price, amount } = curElem;
+      
+              accum.total_item += amount;
+              accum.total_price += price * amount;
+      
+              return accum;
+            },
+            {
+              total_item: 0,
+              total_price: 0,
+            }
+          );
           return {
             ...state,
-            total_item: updatedItemVal,
+            total_item,
+            total_price,
           };
-        
+
         default:
             return {
                 ...state
