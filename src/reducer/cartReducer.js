@@ -21,7 +21,7 @@ const cartReducer = (state, action) => {
                 cart:[...state.cart, cartProduct]
             }
         case 'REMOVE_ITEM': 
-           let updatedCart = state.cart.filter((curItem)=>curItem.id != action.payload)
+           let updatedCart = state.cart.filter((curItem)=>curItem.id !== action.payload)
            return {
             ...state,
             cart:updatedCart
