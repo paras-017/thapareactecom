@@ -24,7 +24,7 @@ const SingleProduct = () =>{
   if (isSingleLoading) {
     return <div className="page_loading">Loading.....</div>;
   }
-  const {id:alias,name,company,price,description,category,stock,stars,reviews,image} = singleProduct
+  const {name,company,price,description,stock,stars,reviews,image} = singleProduct
 
   return (
     <Wrapper>
